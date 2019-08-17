@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Quản lý Salomon</title>
+    <title>Quản lý </title>
 
     <!-- Liên kết CSS bootstrap -->
     <link href="public/vendor/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
@@ -41,16 +41,7 @@
             </div><!-- /End sidebar -->
             <!-- Content -->
             <div class="col-md-9">
-                <?php
-                $page = isset($_GET['page']) ? $_GET['page'] : 'sanpham_danhsach';
-                if($page == 'loaisanpham_danhsach') {
-                    include('loaisanpham/danhsach.php');
-                } else if($page == 'sanpham_danhsach') {
-                    include('sanpham/danhsach.php');
-                } else if($page == 'sanpham_them') {
-                    include('sanpham/them.php');
-                }
-                ?>
+                content
             </div><!-- /End content -->
         </div><!-- /End main content -->
 
