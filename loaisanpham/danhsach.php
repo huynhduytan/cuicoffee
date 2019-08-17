@@ -28,12 +28,12 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 }
 </style>
 
-<a href="/web02/loaisanpham/them.php">Thêm Loại sản phẩm</a>
+<a href="/cuicoffee/loaisanpham/them.php">Thêm Loại sản phẩm</a>
 <table border="1">
     <tr>
         <th>Mã</th>
         <th>Tên</th>
-        <th>Mô tả</th>
+    
         <th>Chức năng</th>
     </tr>
     <?php
@@ -43,11 +43,11 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
     <tr class="<?php echo ($bienDem % 2 == 0 ? 'rowchan' : '') ?>">
         <td><?= $row['lsp_ma']; ?></td>
         <td><?= $row['lsp_ten']; ?></td>
-        <td><?php echo $row['lsp_mota']; ?></td>
+        
         <td>
             <!-- Truyền dữ liệu GET trên URL, theo dạng ?KEY1=VALUE1&KEY2=VALUE2 -->
-            <a href="/web02/loaisanpham/sua.php?lsp_ma=<?= $row['lsp_ma']; ?>">Sửa</a>
-            <a href="/web02/loaisanpham/xoa.php?lsp_ma=<?= $row['lsp_ma']; ?>">Xóa</a>
+            <a href="/cuicoffee/loaisanpham/sua.php?lsp_ma=<?= $row['lsp_ma']; ?>">Sửa</a>
+            <a href="/cuicoffee/loaisanpham/xoa.php?lsp_ma=<?= $row['lsp_ma']; ?>">Xóa</a>
         </td>
     </tr>
     <?php $bienDem++; ?>

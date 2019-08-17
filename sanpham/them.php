@@ -12,40 +12,26 @@ while ($row = mysqli_fetch_array($resultLoaiSanPham, MYSQLI_ASSOC)) {
         'lsp_ten' => $row['lsp_ten'],
     );
 }
-// Lấy dữ liệu Nhà sản xuất
+// Lấy dữ liệu Thương hiệu
 $sqlNhaSanXuat = <<<EOT
-    SELECT * FROM nhasanxuat;
+    SELECT * FROM thuonghieu;
 EOT;
-$resultNhaSanXuat = mysqli_query($conn, $sqlNhaSanXuat);
-$dataNhaSanXuat = [];
-while ($row = mysqli_fetch_array($resultNhaSanXuat, MYSQLI_ASSOC)) {
-    $dataNhaSanXuat[] = array(
-        'nsx_ma' => $row['nsx_ma'],
-        'nsx_ten' => $row['nsx_ten'],
+$resultThuonghieu = mysqli_query($conn, $sqlThuonghieu);
+$dataThuonghieu = [];
+while ($row = mysqli_fetch_array($resultThuonghieu, MYSQLI_ASSOC)) {
+    $dataThuonghieu[] = array(
+        'th_ma' => $row['th_ma'],
+        'th_ten' => $row['th_ten'],
     );
 }
-// Lấy dữ liệu Khuyến mãi
-$sqlKhuyenMai = <<<EOT
-    SELECT * FROM khuyenmai;
-EOT;
-$resultKhuyenMai = mysqli_query($conn, $sqlKhuyenMai);
-$dataKhuyenMai = [];
-while ($row = mysqli_fetch_array($resultKhuyenMai, MYSQLI_ASSOC)) {
-    $dataKhuyenMai[] = array(
-        'km_ma' => $row['km_ma'],
-        'km_ten' => $row['km_ten'],
-    );
-}
+
 ?>
 
 <form name="frmThemMoiSanPham" id="frmThemMoiSanPham" method="post" action="">
     Tên sản phẩm: <input type="text" name="sp_ten" id="sp_ten" class="form-control" /><br />
     Giá sản phẩm: <input type="text" name="sp_gia" id="sp_gia" class="form-control" /><br />
-    Giá cũ sản phẩm: <input type="text" name="sp_giacu" id="sp_giacu" /><br />
-    Mô tả ngắn sản phẩm: <input type="text" name="sp_mota_ngan" id="sp_mota_ngan" /><br />
-    Mô tả chi tiết sản phẩm: <input type="text" name="sp_mota_chitiet" id="sp_mota_chitiet" /><br />
-    Ngày cập nhật sản phẩm: <input type="text" name="sp_ngaycapnhat" id="sp_ngaycapnhat" /><br />
-    Số lượng sản phẩm: <input type="text" name="sp_soluong" id="sp_soluong" /><br />
+    
+    
     Loại sản phẩm: 
     <select name="lsp_ma" id="lsp_ma">
         <?php foreach($dataLoaiSanPham as $loaiSanPham) : ?>
@@ -54,19 +40,18 @@ while ($row = mysqli_fetch_array($resultKhuyenMai, MYSQLI_ASSOC)) {
     </select>
     <br />
     Nhà sản xuất: 
-    <select name="nsx_ma" id="nsx_ma">
-        <?php foreach($dataNhaSanXuat as $nhasanxuat) : ?>
-        <option value="<?= $nhasanxuat['nsx_ma'] ?>"><?= $nhasanxuat['nsx_ten'] ?></option>
+    Thương hiệu: 
+    <select name="th_ma" id="th_ma">
+        <?php foreach($dataThuonghieu as $thuonghieu) : ?>
+            <?php if($thuonghieu['th_ma'] == $sanphamRow['th_ma']) { ?>
+                <option value="<?= $thuonghieu['th_ma'] ?>" selected><?= $thuonghieu['th_ten'] ?></option>
+            <?php } else { ?>
+                <option value="<?= $thuonghieu['th_ma'] ?>"><?= $thuonghieu['nsx_ten'] ?></option>
+            <?php } ?>
         <?php endforeach; ?>
     </select>
     <br />
-    Khuyến mãi: 
-    <select name="km_ma" id="km_ma">
-        <?php foreach($dataKhuyenMai as $khuyenmai) : ?>
-        <option value="<?= $khuyenmai['km_ma'] ?>"><?= $khuyenmai['km_ten'] ?></option>
-        <?php endforeach; ?>
-    </select>
-    <br />
+    
     <button name="btnLuu" id="btnLuu" class="btn btn-primary">
         <i class="fa fa-heartbeat" aria-hidden="true"></i> Lưu
     </button>
@@ -76,15 +61,11 @@ while ($row = mysqli_fetch_array($resultKhuyenMai, MYSQLI_ASSOC)) {
 if(isset($_POST['btnLuu'])) {
     $sp_ten = $_POST['sp_ten'];
     $sp_gia = $_POST['sp_gia'];
-    $sp_giacu = $_POST['sp_giacu'];
-    $sp_mota_ngan = $_POST['sp_mota_ngan'];
-    $sp_mota_chitiet = $_POST['sp_mota_chitiet'];
-    $sp_ngaycapnhat = $_POST['sp_ngaycapnhat'];
-    $sp_soluong = $_POST['sp_soluong'];
+    
     $lsp_ma = $_POST['lsp_ma'];
-    $nsx_ma = $_POST['nsx_ma'];
-    $km_ma = isset($_POST['km_ma']) ? $_POST['km_ma'] : 'NULL';
-    $sqlInsert = "INSERT INTO sanpham(sp_ten, sp_gia, sp_giacu, sp_mota_ngan, sp_mota_chitiet, sp_ngaycapnhat, sp_soluong, lsp_ma, nsx_ma, km_ma) VALUES (N'$sp_ten', $sp_gia, $sp_giacu, N'$sp_mota_ngan', N'$sp_mota_chitiet', '$sp_ngaycapnhat', $sp_soluong, $lsp_ma, $nsx_ma, $km_ma);";
+    $th_ma = $_POST['th_ma'];
+    
+    $sqlInsert = "INSERT INTO sanpham(sp_ten, sp_gia,  lsp_ma, th_ma ) VALUES (N'$sp_ten', $sp_gia,   $lsp_ma, $th_ma);";
     $resultInsert = mysqli_query($conn, $sqlInsert);
 }
 ?>
