@@ -22,14 +22,10 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 // var_dump($data);die;
 ?>
 
-<style>
-.rowchan {
-    background: red;
-}
-</style>
 
-<a href="/cuicoffee/loaisanpham/them.php">Thêm Loại sản phẩm</a>
-<table border="1">
+
+<a href="/cuicoffee/loaisanpham/them.php" class="btn btn-outline-primary">Thêm Loại sản phẩm</a>
+<table class="table table-dark">
     <tr>
         <th>Mã</th>
         <th>Tên</th>
@@ -45,7 +41,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
         
         <td>
             <!-- Truyền dữ liệu GET trên URL, theo dạng ?KEY1=VALUE1&KEY2=VALUE2 -->
-            <a href="/cuicoffee/loaisanpham/sua.php?lsp_ma=<?= $row['lsp_ma']; ?>">Sửa</a>
+           <a href="/cuicoffee/loaisanpham/sua.php?lsp_ma=<?= $row['lsp_ma']; ?>">Sửa</a>
             <a href="/cuicoffee/loaisanpham/xoa.php?lsp_ma=<?= $row['lsp_ma']; ?>">Xóa</a>
         </td>
     </tr>

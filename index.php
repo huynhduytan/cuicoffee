@@ -14,19 +14,20 @@
 
     <style>
     div {
-        border: 1px solid red;
+        border: 1px solid black;
     }
     </style>
 </head>
-<body>
-    <div class="container">
+<body class="p-3 mb-2 bg-light text-dark">
+   
+   <div class="container">
         <!-- Header -->
         <div class="row">
             <div class="col-md-6 col-12 col-xl-3">
-                Cột LOGO
+                <img src="./img/logo.png">
             </div><!-- /End cột LOGO -->
             <div class="col-md-6 col-12 col-xl-9">
-                Cột Tên công ty
+                CUI COFFEE
             </div><!-- /End cột COMPANY NAME -->
         </div><!-- /End header -->
 
@@ -35,12 +36,23 @@
             <!-- Sidebar -->
             <div class="col-md-3">
                 <ul class="list-group">
-                    <li class="list-group-item"><a href="?page=loaisanpham_danhsach">Danh sách Loại sản phẩm</a></li>
-                    <li class="list-group-item"><a href="?page=sanpham_danhsach">Danh sách Sản phẩm</a></li>
+                    <li class="list-group-item"><a href="?page=loaisanpham_danhsach" class="btn btn-outline-success">Danh sách Loại sản phẩm</a></li>
+                    <li class="list-group-item"><a href="?page=sanpham_danhsach" class="btn btn-outline-success">Danh sách Sản phẩm</a></li>
                 </ul>
             </div><!-- /End sidebar -->
             <!-- Content -->
             <div class="col-md-9">
+
+            <?php
+                $page = isset($_GET['page']) ? $_GET['page'] : 'sanpham_danhsach';
+                if($page == 'loaisanpham_danhsach') {
+                    include('loaisanpham/danhsach.php');
+                } else if($page == 'sanpham_danhsach') {
+                    include('sanpham/danhsach.php');
+                } else if($page == 'sanpham_them') {
+                    include('sanpham/them.php');
+                }
+                ?>
            
             </div><!-- /End content -->
         </div><!-- /End main content -->
@@ -71,6 +83,7 @@
     <script src="public/vendor/popperjs/popper.min.js"></script>
 
     <!-- Liên kết thư viện Bootstrap 4 -->
-    <script src="public/vendor/bootstrap/js/bootstrap.min.js"></script>
+   <script src="public/vendor/bootstrap/js/bootstrap.min.js"></script>
+  
 </body>
 </html>

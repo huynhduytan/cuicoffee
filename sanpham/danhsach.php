@@ -4,7 +4,7 @@ require_once __DIR__ . '/../dbconnect.php';
 // End of Text
 $sql = <<<EOT
     SELECT sp.sp_ma, sp.sp_ten, sp.sp_gia, 
-    lsp.lsp_ten, th.th_ma 
+       lsp.lsp_ten, th.th_ten 
     FROM sanpham sp
     JOIN loaisanpham lsp ON sp.lsp_ma = lsp.lsp_ma
     JOIN thuonghieu th ON sp.th_ma = th.th_ma
@@ -28,7 +28,7 @@ while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 
 <a href="/cuicoffee/index.php?page=sanpham_them" class="btn btn-outline-primary"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm Sản phẩm</a>
 <div class="table-responsive-sm">
-    <table class="table table-bordered table-hover table-sm">
+    <table class="table table-dark">
         <thead>
             <tr>
                 <th>Mã sản phẩm</th>
