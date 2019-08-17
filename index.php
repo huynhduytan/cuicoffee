@@ -41,7 +41,7 @@
             </div><!-- /End sidebar -->
             <!-- Content -->
             <div class="col-md-9">
-                content
+           
             </div><!-- /End content -->
         </div><!-- /End main content -->
 
@@ -57,7 +57,7 @@
                 Cột NEWS
             </div><!-- /End cột NEWS -->
             <div class="col-md-3">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.723612696626!2d105.78061631510307!3d10.039650892824028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a062a767d14a8f%3A0xd2b013e6e71cae96!2zQ8ahIFPhu58gVGluIEjhu41jIC0gQW5oIFbEg24gTWFpIEth!5e0!3m2!1svi!2s!4v1565871694276!5m2!1svi!2s" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+                
             </div><!-- /End cột MAP -->
         </div><!-- /End Footer -->
     </div>
