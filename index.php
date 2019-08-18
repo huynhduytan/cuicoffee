@@ -24,7 +24,7 @@
         <!-- Header -->
         <div class="row">
             <div class="col-md-6 col-12 col-xl-3">
-                <img src="./img/logo.png">
+                <img src="/image/logo.png" width="30" height="30">
             </div><!-- /End cột LOGO -->
             <div class="col-md-6 col-12 col-xl-9">
                 CUI COFFEE
