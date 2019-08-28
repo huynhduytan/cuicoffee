@@ -16,10 +16,10 @@ while ($row = mysqli_fetch_array($resultLoaiSanPham, MYSQLI_ASSOC)) {
 $sqlNhaSanXuat = <<<EOT
     SELECT * FROM thuonghieu;
 EOT;
-$resultThuonghieu = mysqli_query($conn, $sqlThuonghieu);
-$dataThuonghieu = [];
-while ($row = mysqli_fetch_array($resultThuonghieu, MYSQLI_ASSOC)) {
-    $dataThuonghieu[] = array(
+$resultThuongHieu = mysqli_query($conn, $sqlThuongHieu);
+$dataThuongHieu = [];
+while ($row = mysqli_fetch_array($resultThuongHieu, MYSQLI_ASSOC )) {
+    $dataThuongHieu[] = array(
         'th_ma' => $row['th_ma'],
         'th_ten' => $row['th_ten'],
     );
