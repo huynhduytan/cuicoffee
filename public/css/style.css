@@ -1,0 +1,7 @@
+.content-wrapper{
+    margin-top: 56px;
+}
+#mycarousel > .carousel-inner > .carousel-item > img {
+    width: 100%;
+    height: 550px;
+}

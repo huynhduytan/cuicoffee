@@ -1,8 +1,8 @@
 <?php
-$conn = mysqli_connect('127.0.0.1', 'root', '', 'cuicoffee') or die('Đây là đâu?');
-// Tùy chỉnh kết nối
-// Set charset là utf-8 đối với kết nối này. Dùng để gõ tiếng Việt, Nhật, Thái, Trung Quốc ...
-// Lưu ý: gõ với bộ gõ UNIKEY, bảng mã là UNICODE
-$conn->query("SET NAMES 'utf8'"); 
-$conn->query("SET CHARACTER SET utf8");  
+$conn = mysqli_connect('127.0.0.1', 'root', '', 'cuicoffee') or die('Server không kết nối được');
+$conn->query("SET NAME 'utf8'"); // set charset utf8 dùng để gõ tiếng Việt, Thái, Nhật,Trung Quốc
+$conn->query("SET CHARACTER SET utf8 "); //lưu ý: gõ bộ gõ unikey, max  unnicode
+// session start
+ session_start();
 ?>
+
